@@ -1,0 +1,42 @@
+
+
+<div class="project-login-logo">
+    <h1>PROJECTOR</h1>
+</div>
+
+
+
+<div class="ui middle aligned center aligned grid project-login-form">
+    <div class="column">
+        <h2 class="ui blue image header">
+            <div class="content">
+                Log-in to your account
+            </div>
+        </h2>
+        <form class="ui large form">
+            <div class="ui stacked segment">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input type="text" ng-model="model.username" placeholder="Username" ng-keyup="model.enterLogin($event)">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input type="password" ng-model="model.password" placeholder="Password" ng-keyup="model.enterLogin($event)">
+                    </div>
+                </div>
+                <div class="ui fluid large blue submit button" ng-click="model.login()" >Login</div>
+            </div>
+
+
+
+        </form>
+
+        <div class="ui message " ng-class="model.errorLogin()" >LOGIN FAILED</div>
+
+
+
+    </div>
+</div>

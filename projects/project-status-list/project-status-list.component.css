@@ -1,0 +1,160 @@
+
+project-status-list {
+    display:flex;
+    flex-direction:column;
+    flex:0 1 250px;
+    margin:0 9px 0 0;
+    background-color:#e0e0e0;
+    border-radius:4px;
+    min-width:250px;
+    box-shadow:0 1px 1px rgba(0,0,0,.25);
+}
+
+.project-status-list-item {
+    display:flex;
+    flex-direction:column;
+    z-index: 10;
+}
+
+.project-status-list-item-name {
+    display:flex;
+    flex:0 1 100%;
+    flex-direction:row;
+    height:40px;
+    justify-content:space-between;
+    align-items:center;
+    padding:6px 9px;
+    cursor:pointer;
+
+}
+
+.project-status-list-item-name input {
+    width:210px;
+    background-color:transparent !important;
+    border:none !important;
+    max-height:25px;
+    outline:0;
+    cursor:pointer;
+    text-overflow:ellipsis;
+    font-size:0.875rem;
+    font-weight:600;
+    font-family:  Roboto, "Droid Sans", "Helvetica Neue", sans-serif;
+    margin:6px 0 0 3px;
+
+}
+
+/*.project-status-list-item-name input:focus {
+    background-color:white !important;
+    box-shadow:0 1px 0 rgba(0,0,0,.25) !important;
+    z-index:10;
+}*/
+
+.project-status-list-item-name i {
+    font-size: 0.875rem;
+}
+
+.project-status-list-item-ticket-list {
+    display:flex;
+    flex-direction:column;
+    max-height:700px;
+    min-height:42px;
+    overflow-y:auto;
+    margin:6px 0;
+}
+
+
+.project-status-list-item-ticket {
+    margin:3px 9px;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    flex:0 0 32px;
+    background-color:#f7f7f7;
+    border-radius:3px;
+    padding:0 10px;
+    color:#757575;
+    cursor:pointer;
+    font-size:0.875rem;
+    box-shadow:0 1px 0 rgba(0,0,0,.25);
+    word-break: break-word;
+}
+
+.cursor-grab {
+    cursor: grab !important;
+    cursor: -webkit-grabbing !important; /* Chrome 1-21, Safari 4+ */
+    cursor:    -moz-grabbing !important; /* Firefox 1.5-26 */
+    cursor:         grabbing !important; /* W3C standards syntax, should come least */
+}
+
+
+
+
+.project-status-list-item-ticket:hover {
+    background-color:#F5F5F5;
+}
+
+.project-status-list-item-add-ticket {
+
+    padding:9px 3px 6px 15px;
+    color:#9E9E9E;
+    cursor:pointer;
+    border-radius:0 0 3px 3px;
+    font-size:0.875rem;
+}
+
+.project-status-list-item-add-ticket:hover {
+    background-color:#BDBDBD;
+}
+.project-status-list-item-add-ticket-input {
+    display:flex;
+    flex-direction:column;
+    margin-top:6px;
+}
+
+.project-status-list-item-add-ticket-input-text {
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    flex:1 1 90%;
+    padding:0 9px 3px 9px;
+}
+
+.project-status-list-item-add-ticket-input-text textarea {
+    display:flex;
+    flex:1 1 90%;
+    border-radius:3px;
+    background-color:#f7f7f7;
+    position:relative;
+    z-index:10;
+    padding:6px 8px 2px 8px;
+    resize: none;
+    height: 58px;
+    border:none;
+    outline:none;
+    color:#757575;
+    font-size: 0.87rem !important;
+    box-shadow:0 1px 0 rgba(0,0,0,.25);
+}
+
+.project-status-list-item-add-ticket-input-text textarea::placeholder {
+    font-family: Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;
+    color:#9E9E9E;
+}
+
+.project-status-list-item-add-ticket-input-buttons {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    padding:6px 9px;
+}
+
+.project-status-list-item-add-ticket-input-buttons i{
+    font-size:1.2rem;
+    color:#9E9E9E;
+    cursor:pointer;
+}
+
+.project-status-list-item-add-ticket-input-buttons i:hover{
+    color:#424242;
+}

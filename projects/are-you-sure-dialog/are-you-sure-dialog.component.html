@@ -1,0 +1,20 @@
+
+<div class="are-you-sure-dialog-overlay-container">
+    <div class="app-modal-mask dark-mask" ng-click="vm.noHandler()"></div>
+
+    <div class="are-you-sure-dialog-container">
+        <div class="are-you-sure-dialog-title">
+            <i class="trash alternate icon"></i>
+        </div>
+
+        <div class="are-you-sure-dialog-content">
+            {{vm.content}}
+        </div>
+
+        <div class="are-you-sure-dialog-action-btn-container">
+            <button class="are-you-sure-dialog-action-btn" ng-click="vm.noHandler()">{{vm.btnNoText}}</button>
+            <button class="are-you-sure-dialog-action-btn" ng-click="vm.yesHandler()">{{vm.btnYesText}}</button>
+        </div>
+    </div>
+</div>
+

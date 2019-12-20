@@ -1,0 +1,11 @@
+
+
+    <div class="project-item-button-wrapper">
+
+        <div class="project-item-button" ng-click="model.goTo(model.project.id)">
+            <div class="project-item-name"> {{model.project.name}} </div>
+            <div class="project-item-trash-icon-wrapper" ng-click="$event.stopPropagation(); model.removeProject(model.project.id)"><i class="trash alternate icon"></i></div>
+        </div>
+
+
+    </div>

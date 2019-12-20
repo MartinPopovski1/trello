@@ -1,0 +1,36 @@
+
+
+    <div class="projects-list-header">
+        <div class="projects-list-header-logo">
+            <h1>PROJECTOR</h1>
+        </div>
+
+        <div class="projects-list-header-input" >
+        <div class="ui big input" ng-class="model.emptyStringError()">
+            <input type="text"  placeholder="Create project..." ng-model="model.projectName" ng-keyup="$event.keyCode === 13 ? model.addProject() : false">
+        </div>
+        <button class="big ui button" ng-click="model.addProject()">ADD</button>
+    </div>
+    </div>
+
+    <div class="projects-list-content">
+
+        <div class="projects-list-content-items">
+            <project-item ng-repeat="project in model.projects | orderBy:'$index':true" project="project" on-remove="model.removeProject(id)" > </project-item>
+        </div>
+
+    </div>
+
+<!--    <button ng-click="model.xml()">XmlHTttpRequest</button>
+    <button ng-click="model.ang()">AngularJS</button>-->
+
+<!--    <p ng-if="model.showXML">XML Request</p>
+    <p ng-if="model.showANG">Angular Request</p>-->
+
+
+
+
+
+
+
+

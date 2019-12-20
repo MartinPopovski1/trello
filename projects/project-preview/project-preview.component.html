@@ -1,0 +1,141 @@
+
+
+
+
+        <div class="project-preview-toolbar">
+            <div class="project-preview-toolbar-left">
+                <div class="project-preview-bars-wrapper" ng-click="model.manageFlyout()">
+                    <i class="bars icon" ></i>
+                </div>
+                <div class="project-preview-home-wrapper" ng-click="model.goTo()">
+                    <i class="home icon"></i>
+                </div>
+                <div class="project-preview-logo-wrapper">
+                    <h3>PROJECTOR</h3>
+                </div>
+
+            </div>
+            <div class="project-preview-toolbar-right ui floating dropdown labeled icon" ui-dropdown>
+                <i class="user circle icon"></i>
+
+                    <div class="menu">
+                        <div class="header">
+                           User
+                        </div>
+                        <div class="item" ng-click="model.goTo()">
+                           Home
+                        </div>
+                        <div class="item" ng-click="model.logout()">
+                            Log out
+                        </div>
+                    </div>
+
+            </div>
+
+        </div>
+
+
+
+
+        <div class="project-preview-sidebarAndContent">
+
+            <nav ng-if="model.flyout" class="project-preview-sidebar" >
+
+                <div class="project-preview-sidebar-top">
+
+                <div class="ui mini input project-preview-project-name">
+                    <input  ng-model="model.project.name" >
+                </div>
+                <div class="project-preview-board-input ">
+                    <div class="ui small input">
+                        <input type="text" ng-model="model.newBoardName"  placeholder="Add new board..." ng-keyup="$event.keyCode === 13 ? model.addBoard(model.newBoardName) : false">
+                        <button class="small ui button" ng-click="model.addBoard(model.newBoardName)" >ADD</button>
+                    </div>
+                </div>
+
+                </div>
+
+                <div class="project-preview-board-list">
+                    <div class="project-preview-board-list-tittle">
+                      <h5> BOARDS </h5>
+                    </div>
+                    <div class="project-preview-board-list-name" ng-repeat="board in model.project.boards | orderBy:'$index': true" ng-click="model.openBoard(board.id)" >
+
+
+                            <div class="project-preview-board-list-name-item" ng-if="!board.isEditMode">
+
+                            <div class="project-preview-board-list-name-left">
+                                <i class="circle icon" ng-class="model.activeBoard(board)" ></i>
+                                <p class="project-preview-board-list-name-text"> {{board.name}}</p>
+                            </div>
+                                <div class="project-preview-board-list-name-right">
+                                <i class="edit icon"  ng-click="model.openEditBoard(board,$event); $event.stopPropagation()" ng-if="!board.isEditMode"></i>
+                                <i class="trash alternate outline icon" ng-click="model.removeBoard(board.id)" ng-if="!board.isEditMode"></i>
+                                </div>
+                            </div>
+                                <div class="project-preview-board-list-name-item-edit" ng-if="board.isEditMode" on-div-blur="model.closeEditBoard(board)">
+                                    <div class="ui mini input project-preview-board-list-name-left">
+                                         <input class="project-preview-board-edit-input" ng-model="board.name" ng-keyup="$event.keyCode === 13 ? model.updateBoard(board) : false"
+                                       auto-focus>
+                                    </div>
+                                    <div class="project-preview-board-list-name-right">
+                                        <i class="save outline icon" ng-click="model.updateBoard(board)" ></i>
+                                        <i class="close icon" ng-click="model.closeEditBoard(board)"></i>
+                                    </div>
+                                </div>
+
+                      <!-- <div class="ui mini input project-preview-board-list-name-left">
+                           <i class="circle icon" ng-class="model.activeBoard(board)" ng-if="!board.isEditMode"></i>
+                           <p class="project-preview-board-list-name-text" ng-if="!board.isEditMode"> {{board.name}}</p>
+                           <input class="project-preview-board-edit-input" ng-model="board.name"  ng-if="board.isEditMode" ng-keyup="$event.keyCode === 13 ? model.updateBoard(board) : false"
+                                  auto-focus ng-blur="model.closeEditBoard(board)">
+                       </div>
+                       <div class="project-preview-board-list-name-right">
+                           <i class="edit icon"  ng-click="model.openEditBoard(board,$event)" ng-if="!board.isEditMode"></i>
+                          <i class="trash alternate outline icon" ng-click="model.removeBoard(model.id,board.id)" ng-if="!board.isEditMode"></i>
+                           <i class="save outline icon" ng-mousedown="model.updateBoard(board)" ng-if="board.isEditMode" ></i>
+                           <i class="close icon" ng-click="model.closeEditBoard(board)" ng-if="board.isEditMode"></i>
+
+                       </div>-->
+
+                    </div>
+                </div>
+
+            </nav>
+
+
+
+
+            <div class="project-preview-content" scroll-glue-right="model.scrollRight">
+
+
+                <div class="project-preview-status-list-wrapper">
+
+
+                    <project-status-list class="project-status-list" ng-repeat="list in model.board.lists" list="list" on-update-list="model.updateList(list)" on-remove-list="model.removeList(id)"
+                                      on-add-ticket="model.addTicket(idOfList,ticketName)" drag-list>
+                    </project-status-list>
+
+                </div>
+
+                <div class="project-preview-add-list" ng-if="!model.isListInputOpen && model.boardExist()" ng-click="model.isListInputOpen = true; $event.stopPropagation()" id="addList" >
+                    <p>+ Add List</p>
+                </div>
+
+                <div class="project-preview-add-list-input" ng-if="model.isListInputOpen" on-div-blur="model.closeList()">
+                    <div class="ui mini input project-preview-add-list-input-text">
+                        <input type="text" auto-focus ng-model="model.newListName" placeholder="Enter list tittle..."  ng-keypress="model.enterAddList($event)">
+                    </div>
+
+                    <div class="project-preview-add-list-input-button" >
+                        <button class="mini ui green button" ng-click="model.addList()">Add List</button>
+                        <i class="close icon" ng-click="model.closeList()"></i>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>

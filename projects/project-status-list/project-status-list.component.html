@@ -1,0 +1,49 @@
+
+
+
+        <div class="project-status-list-item" >
+            <div class="project-status-list-item-name">
+                <div class="ui mini input project-status-list-item-name-left">
+
+                    <input ng-model="vm.list.name" ng-blur="vm.updateList()" ng-keyup="model.enterUpdateProject($event)" >
+                </div>
+                <div class="project-status-list-item-name-right">
+                    <i class="fas fa-grip-vertical"></i>
+                    <i class="trash alternate outline icon" ng-click="vm.removeList(vm.list.id)"></i>
+                </div>
+
+            </div>
+
+            <div class="project-status-list-item-ticket-list" >
+
+                <div class="project-status-list-item-ticket" ng-repeat="ticket in vm.list.tickets" ng-click="vm.openTicketForm(ticket)"  id="{{ticket.id}}" drag>
+                    <span > {{ticket.name}} </span>
+                </div>
+
+            </div>
+
+
+            <div class="project-status-list-item-add-ticket" ng-if="!vm.list.isAddTicketOpen" ng-click="vm.toggleNewTicket($event)">
+                <p ng-if="!vm.list.isAddTicketOpen">+ Add Ticket</p>
+            </div>
+
+
+            <div class="project-status-list-item-add-ticket-input" ng-if="vm.list.isAddTicketOpen" on-div-blur="vm.closeAddTicket()">
+
+                <div class="project-status-list-item-add-ticket-input-text">
+                    <textarea ng-model="vm.ticketName" auto-focus  ng-keydown="vm.enterTicket($event)" placeholder="Enter a tittle for this ticket"> </textarea>
+                </div>
+
+                <div class="project-status-list-item-add-ticket-input-buttons">
+                    <button class="mini ui green button" ng-click="vm.addTicket()">Add Ticket</button>
+                    <i class="close icon" ng-click="vm.closeAddTicket()"></i>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+

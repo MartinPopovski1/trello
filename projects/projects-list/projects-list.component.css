@@ -1,0 +1,53 @@
+
+
+projects-list {
+    width:100vw;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+
+}
+
+.projects-list-header {
+    background-color:#1565C0 ;
+    flex:0 1 30%;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+    align-items:center;
+    z-index: 100;
+    box-shadow:0 3px 8px rgba(0,0,0,0.36);
+}
+
+
+
+
+.projects-list-header-logo h1 {
+    font-size:90px;
+    color:white;
+}
+
+.projects-list-header-logo {
+
+}
+
+.projects-list-header-input input{
+    margin-right:5px !important;
+
+}
+
+.projects-list-content {
+    padding-top:40px;
+    display:flex;
+    justify-content:center;
+    flex:1 1 60%;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+
+.projects-list-content-items {
+    display:flex;
+    flex-flow:row wrap;
+    align-content:flex-start;
+    width:1200px;
+}

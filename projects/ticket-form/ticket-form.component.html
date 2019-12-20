@@ -1,0 +1,32 @@
+
+<div class="ticket-form-overlay-container">
+    <div class="app-modal-mask dark-mask" ng-click="vm.closeHandler()"></div>
+
+    <div class="ticket-form-container">
+        <div class="ticket-form-header">
+            <div class="ticket-form-title">
+                <span>{{vm.title}}</span>
+                <p>in list {{vm.listName}}</p>
+            </div>
+            <div class="ticket-form-exit-icon">
+                <i class="fa fa-times-thin fa-2x" aria-hidden="true"  ng-click="vm.closeHandler()"></i>
+            </div>
+        </div>
+
+
+
+        <div class="ticket-form-description">
+            <p>Description</p>
+            <textarea ></textarea>
+            {{vm.description}}
+        </div>
+        <div class="ticket-form-save-button">
+            <button class="mini ui green button" ng-click="">Save</button>
+        </div>
+
+
+
+
+    </div>
+</div>
+
