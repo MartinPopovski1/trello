@@ -69,8 +69,7 @@
                                 <p class="project-preview-board-list-name-text"> {{board.name}}</p>
                             </div>
                                 <div class="project-preview-board-list-name-right">
-                                <i class="edit icon"  ng-click="model.openEditBoard(board,$event); $event.stopPropagation()" ng-if="!board.isEditMode"></i>
-                                <i class="trash alternate outline icon" ng-click="model.removeBoard(board.id)" ng-if="!board.isEditMode"></i>
+                                <i class="trash alternate outline icon" ng-click="model.removeBoard(board.id)" ></i>
                                 </div>
                             </div>
                                 <div class="project-preview-board-list-name-item-edit" ng-if="board.isEditMode" on-div-blur="model.closeEditBoard(board)">

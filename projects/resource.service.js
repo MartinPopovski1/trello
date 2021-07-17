@@ -23,10 +23,10 @@
         this.removeProject = removeProject;
 
 
+        
 
 
-
-        var baseUrl = "http://localhost:8080/api/projects";
+        var baseUrl = "http://localhost:44305/api/projects";
 
 
         function getProject(id) {
@@ -95,8 +95,9 @@
         /// Boards
 
 
-        this.postBoard=postBoard;
-        this.removeBoard=removeBoard;
+        this.getBoard = getBoard;
+        this.postBoard = postBoard;
+        this.removeBoard = removeBoard;
 
 
 
@@ -106,6 +107,21 @@
             var url = baseUrl + "/" + id + "/" + "boards";
 
             $http.post(url, { name: name}).then(function (response) {
+                deferred.resolve(response.data)
+            }, function (error) {
+                deferred.reject(error);
+            });
+
+            return deferred.promise;
+        }
+        
+        
+        function getBoard(id, boardId) {
+            var deferred = $q.defer();
+
+            var url = baseUrl + "/" + id + "/boards/" + boardId;
+
+            $http.get(url).then(function (response) {
                 deferred.resolve(response.data)
             }, function (error) {
                 deferred.reject(error);

@@ -1,11 +1,7 @@
 .are-you-sure-dialog-overlay-container {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
+
     display: flex;
 
-    -webkit-flex-direction: column;
     flex-direction: column;
 
     position: absolute;
@@ -21,25 +17,22 @@
 }
 
 .are-you-sure-dialog-container {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
 
-    -webkit-flex-direction: column;
     flex-direction: column;
 
     z-index: 1000;
 
 
-  /*  background-color: #e0e0e0;*/
+   background-color: #0b3b6f;
 
     border-radius:1px;
     /*width: 250px;*/
     min-width:30vw;
     max-width: 80vw;
-    padding: 24px;
+    padding: 40px 65px 15px 65px;
+    border-radius: 8px;
+    border: 1px solid #eee;
 }
 
 
@@ -47,13 +40,8 @@
 /* title */
 
 .are-you-sure-dialog-title {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
 
-    -webkit-flex-direction: column;
+    display: flex;
     flex-direction: column;
     align-items: center;
 
@@ -70,19 +58,9 @@
 /* content */
 
 .are-you-sure-dialog-content {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
+
     display: flex;
-
-    -webkit-flex-direction: column;
     flex-direction: column;
-
-    -webkit-box-flex: 1;
-    -moz-box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
     flex: 1;
 
     font-family: robotoregular, sans-serif;
@@ -97,13 +75,7 @@
 /* action buttons */
 
 .are-you-sure-dialog-action-btn-container {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
-
-    -webkit-flex-direction: row;
     flex-direction: row;
 
     justify-content: flex-end;
@@ -114,13 +86,7 @@
 }
 
 .are-you-sure-dialog-action-btn {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
-
-    -webkit-flex-direction: column;
     flex-direction: column;
 
     justify-content: flex-end;
@@ -129,7 +95,7 @@
     text-align: center;
 
     font-family: robotomedium, sans-serif;
-    font-weight: 500;
+    font-weight: bold;
     font-size:16px;
     padding: 8px 12px;
     margin: 9px 3px;
@@ -147,4 +113,8 @@
 
 .are-you-sure-dialog-action-btn:hover {
     background-color: #EEEEEE;
+}
+
+.are-you-sure-dialog-action-btn-remove {
+    color: #ff0000
 }

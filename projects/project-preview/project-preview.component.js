@@ -34,7 +34,7 @@
 
                 if(model.project.boards.length>0) {
                     model.board = model.project.boards[model.project.boards.length-1];
-                    model.board.isBoardActive=true;
+                    model.openBoard(model.board.id)
                 }
             });
 
@@ -144,7 +144,6 @@
 
             areYouSureDialogService.open(options);
 
-
             function callback(positiveFeedback) {
                 if(positiveFeedback) {
                     ResourceService.removeBoard(model.id,id).then(function () {
@@ -162,9 +161,10 @@
 
 
         function openEditBoard(board,$event) {
-/*            model.boards=store.getAllBoards(model.project.id);
+/*          
+           model.boards=store.getAllBoards(model.project.id);
             board.isEditMode=!board.isEditMode;
-            $event.stopPropagation();*/
+            $event.stopPropagation(); */
         }
 
         function closeEditBoard(board) {
@@ -198,19 +198,28 @@
 
 
         function openBoard(id) {
-            var foundBoard = utils.linq.first(model.project.boards,function(b) { return b.id===id });
+            ResourceService.getBoard(model.project.id, id).then(function(response) {
+                var foundBoard = utils.linq.first(model.project.boards,function(b) { return b.id === id });
+                model.board = foundBoard;
+                model.project.boards.forEach(function(b) { b.isBoardActive = false; });
+                model.board.isBoardActive = true;
+                model.board.lists = response.ticketlists;
+            })
+        /*     var foundBoard = utils.linq.first(model.project.boards,function(b) { return b.id===id });
             model.board=foundBoard;
             model.project.boards.forEach(function(b) { b.isBoardActive = false; });
-            model.board.isBoardActive=true;
+            model.board.isBoardActive=true; */
         }
 
         function openLastBoard() {
-
-            model.board=model.project.boards[model.project.boards.length-1];
+            ResourceService.getBoard(model.project.id, id).then(function(response) {
+            model.board = model.project.boards[model.project.boards.length-1];
             if(model.board) {
                 model.project.boards.forEach(function(b) { b.isBoardActive = false; });
                 model.board.isBoardActive=true;
+                model.board.lists = response.ticketlists
             }
+        })
 
         }
 
@@ -222,6 +231,7 @@
         function addList() {
             if(model.newListName) {
                 ResourceService.postList(model.id,model.board.id, model.newListName).then(function (response) {
+                    if(!model.board.lists) model.board.lists = [];
                     model.board.lists.push(response);
                     model.scrollRight=true;
                     model.newListName = "";

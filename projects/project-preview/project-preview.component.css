@@ -29,7 +29,7 @@ i {
     display: flex;
     flex-direction: row;
     flex: 0 1 2%;
-    color:white;
+    color:rgb(255, 255, 255);
 }
 
 .project-preview-logo-wrapper {
@@ -106,14 +106,14 @@ i {
 
 .project-preview-sidebarAndContent {
     display:flex;
-    flex: 1 1 0%;
+    flex: 1 1 100%;
 
 }
 
 .project-preview-sidebar {
     display:flex;
     flex-direction:column;
-    flex:0 1 300px;
+    flex: 1 1 300px;
     max-width:300px;
     background-color:#e8e8e8;
 }

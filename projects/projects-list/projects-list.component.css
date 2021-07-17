@@ -10,15 +10,15 @@ projects-list {
 
 .projects-list-header {
     background-color:#1565C0 ;
-    flex:0 1 30%;
+    flex: 0.3 0 40%;
     display:flex;
     flex-direction:column;
-    justify-content: space-around;
+    justify-content: center
+    ;
     align-items:center;
     z-index: 100;
     box-shadow:0 3px 8px rgba(0,0,0,0.36);
 }
-
 
 
 
@@ -27,9 +27,6 @@ projects-list {
     color:white;
 }
 
-.projects-list-header-logo {
-
-}
 
 .projects-list-header-input input{
     margin-right:5px !important;
@@ -40,7 +37,7 @@ projects-list {
     padding-top:40px;
     display:flex;
     justify-content:center;
-    flex:1 1 60%;
+    flex: 1 0 60%;
     overflow-y:auto;
     overflow-x:hidden;
 }
